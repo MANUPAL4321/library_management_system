@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_login.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='download.png') }}" alt="Library Logo"></a>
+        </div>
+        <nav>
+            <a href="{{ url_for('home') }}" class="nav-box"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="{{ url_for('student_login') }}" class="nav-box"><i class="fas fa-user-graduate"></i><span>Student Login</span></a>
+            <a href="{{ url_for('admin_login') }}" class="nav-box"><i class="fas fa-user-tie"></i><span>Admin Login</span></a>
+        </nav>
+    </header>
+    <main>
+        <div class="background-image">
+            <div class="login-box">
+                <h1>Admin Login</h1>
+                <form action="{{ url_for('admin_login') }}" method="POST">
+                    <input type="email" name="email" placeholder="Email (e.g., admin@sitare.org)" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p class="note">Only @sitare.org emails can login.</p>
+                <p class="registration-message">
+                    New admin? <a href="{{ url_for('admin_register') }}">Sign up here</a> to create an account.
+                </p>
+                <p class="created-by">This login page was designed by Manu Kumar.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Your Company. All rights reserved. <a href="mailto:contact@yourcompany.com">Contact Us</a> | Phone: +123456789</p>
+    </footer>
+</body>
+</html>

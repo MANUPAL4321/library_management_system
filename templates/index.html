@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='download.png') }}" alt="Sitare Logo">
+        </div>
+        <nav>
+            <a href="{{ url_for('student_login') }}" class="nav-link">
+                <div class="nav-box">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/student-male.png" alt="Student Login">
+                    <span>Student Login</span>
+                </div>
+            </a>
+            <a href="{{ url_for('admin_login') }}" class="nav-link">
+                <div class="nav-box">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/admin-settings-male.png" alt="Admin Login">
+                    <span>Admin Login</span>
+                </div>
+            </a>
+            <a href="#" id="registerButton" class="nav-link">
+                <div class="nav-box">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/add-user-male.png" alt="Register">
+                    <span>Register</span>
+                </div>
+            </a>
+        </nav>
+        <div class="hours">
+            <p>Opening Time: 8:00 AM</p>
+            <p>Closing Time: 6:00 PM</p>
+        </div>
+    </header>
+    <main>
+        <div class="intro-box">
+            <h1>Welcome to the Library Management System</h1>
+            <h3>"Libraries store the energy that fuels the imagination. They open up windows to the world and inspire us to explore and achieve, and contribute to improving our quality of life."</h3>
+            <p>Manage your library resources efficiently.</p>
+        </div>
+        <section class="features">
+            <h2>Library Features</h2>
+            <ul>
+                <li>
+                    <img src="{{ url_for('static', filename='feature1.jpg') }}" alt="Feature 1">
+                    <p>Online book requests and approvals</p>
+                </li>
+                <li>
+                    <img src="{{ url_for('static', filename='feature2.png') }}" alt="Feature 2">
+                    <p>Automated reminders for book returns</p>
+                </li>
+                <li>
+                    <img src="{{ url_for('static', filename='feature3.png') }}" alt="Feature 3">
+                    <p>Easy book renewals</p>
+                </li>
+            </ul>
+        </section>
+        <section class="feedback">
+            <h2>What People Are Saying</h2>
+            <div class="feedback-row">
+                <div class="feedback-item">
+                    <p>"An excellent system for managing our library. Easy to use and very efficient!"</p>
+                    <p><strong>— Jane Doe, Librarian</strong></p>
+                </div>
+                <div class="feedback-item">
+                    <p>"The library management system has greatly improved our workflow. Highly recommend it!"</p>
+                    <p><strong>— John Smith, Library Assistant</strong></p>
+                </div>
+            </div>
+        </section>
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>How does the online book request system work?</h3>
+                <p>Students can log in and request books online. Admins approve the requests, and the books are issued to the students.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What are the automated reminders?</h3>
+                <p>Our system sends automated reminders to students and admins after 15 days of book issuance to ensure timely returns.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How can I renew a book?</h3>
+                <p>Students can log in to their account and request a renewal for the issued book. Admins can approve the renewal online.</p>
+            </div>
+        </section>
+    </main>
+    <video class="background-video" autoplay muted loop>
+        <source src="{{ url_for('static', filename='library video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <footer>
+        <p>Generation: 2024 | Contact: +123456789</p>
+    </footer>
+
+    <!-- Modal for Registration -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select Registration Type</h2>
+            <button onclick="window.location.href='{{ url_for('admin_register') }}'">Admin Registration</button>
+            <button onclick="window.location.href='{{ url_for('student_register') }}'">Student Registration</button>
+        </div>
+    </div>
+
+    <script>
+        // Slow down the video playback speed
+        document.querySelector('.background-video').playbackRate = 0.25;
+
+        // Modal functionality
+        document.addEventListener("DOMContentLoaded", function() {
+            const modal = document.getElementById("registerModal");
+            const registerButton = document.getElementById("registerButton");
+            const closeButton = document.getElementsByClassName("close")[0];
+
+            registerButton.onclick = function(event) {
+                event.preventDefault();
+                modal.style.display = "block";
+            }
+
+            closeButton.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
