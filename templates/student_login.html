@@ -12,9 +12,24 @@
             <img src="{{ url_for('static', filename='download.png') }}" alt="Library Logo">
         </div>
         <nav>
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('admin_login') }}">Admin Login</a>
-            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('home') }}" class="nav-link">
+                <div class="nav-icon-box">
+                    <img src="https://img.icons8.com/ios-filled/25/ffffff/home.png" alt="Home" class="nav-icon">
+                </div>
+                <span class="nav-text">Home</span>
+            </a>
+            <a href="{{ url_for('admin_login') }}" class="nav-link">
+                <div class="nav-icon-box">
+                    <img src="https://img.icons8.com/ios-filled/25/ffffff/admin-settings-male.png" alt="Admin Login" class="nav-icon">
+                </div>
+                <span class="nav-text">Admin Login</span>
+            </a>
+            <a href="{{ url_for('student_login') }}" class="nav-link">
+                <div class="nav-icon-box">
+                    <img src="https://img.icons8.com/ios-filled/25/ffffff/add-user-male.png" alt="Student Login " class="nav-icon">
+                </div>
+                <span class="nav-text">Student Login</span>
+            </a>
         </nav>
     </header>
     <main>
@@ -22,8 +37,14 @@
             <div class="login-box">
                 <h1>Student Login</h1>
                 <form action="{{ url_for('student_login') }}" method="POST">
-                    <input type="email" name="email" placeholder="Email (e.g., user@sitare.org)" required>
-                    <input type="password" name="password" placeholder="Password" required>
+                    <div class="input-container">
+                        <img src="https://img.icons8.com/ios-filled/25/ffffff/email.png" alt="Email Icon" class="input-icon">
+                        <input type="email" name="email" placeholder="Email (e.g., user@sitare.org)" required>
+                    </div>
+                    <div class="input-container">
+                        <img src="https://img.icons8.com/ios-filled/25/ffffff/password.png" alt="Password Icon" class="input-icon">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
                     <select name="state" required>
                         <option value="" disabled selected>Select your semester</option>
                         <option value="state1">first semester</option>
@@ -34,7 +55,7 @@
                 </form>
                 <p class="note">Only @sitare.org emails can login. <br> This login page was designed by Manu Kumar.</p>
                 <p class="registration-message">
-                    New user? <a href="{{ url_for('register') }}">Sign up here</a> to create an account.
+                    New user? <a href="{{ url_for('student_register') }}">Sign up here</a> to create an account.
                 </p>
             </div>
         </div>

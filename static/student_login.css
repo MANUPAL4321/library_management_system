@@ -16,6 +16,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    height: 8%;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 1rem 2rem;
     display: flex;
@@ -25,15 +26,20 @@ header {
 }
 
 header .logo img {
-    height: 50px;
+    height: 70px;
+    border-radius: 10%;
 }
 
 header nav {
     display: flex;
     gap: 1.5rem;
+    margin-right: 4rem;
 }
 
-header nav a {
+header nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     color: #fff;
     text-decoration: none;
     font-weight: 600;
@@ -43,9 +49,13 @@ header nav a {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-header nav a:hover {
-    background-color: #0056b3;
-    color: #fff;
+header nav .nav-link img {
+    height: 25px;
+}
+
+header nav .nav-link:hover {
+    background-color: #f9fafb;
+    color: #020000;
 }
 
 /* Main Section Styles */
@@ -59,7 +69,7 @@ main {
 }
 
 .login-box {
-    background: rgba(255, 255, 255, 0.9);
+    background: #31aac7e6;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -81,6 +91,18 @@ main {
     gap: 1rem;
 }
 
+.login-box .input-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+}
+
+.login-box .input-icon {
+    height: 25px;
+    margin-right: 0.5rem;
+}
+
 .login-box input[type="email"],
 .login-box input[type="password"],
 .login-box select,
@@ -91,6 +113,7 @@ main {
     font-size: 1rem;
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
 }
 
 .login-box input[type="email"]:focus,
@@ -121,7 +144,7 @@ main {
 p.note {
     margin-top: 1rem;
     font-size: 0.9rem;
-    color: #666;
+    color: #353434;
 }
 
 /* Footer Styles */
@@ -136,4 +159,12 @@ footer {
     padding: 0.5rem;
     font-size: 0.9rem;
     font-weight: 400;
+}
+
+.registration-message a {
+    color: purple;
+}
+
+.registration-message a:hover {
+    color: red;
 }

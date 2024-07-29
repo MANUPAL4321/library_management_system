@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_dashboard.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='download.png') }}" alt="Logo" class="logo">
+            <h1>Welcome, {{ current_user.email.split('@')[0].capitalize() }}</h1>
+        </div>
+        <div class="header-right">
+            <p>{{ current_user.email }}</p>
+            <div class="dropdown">
+                <button class="dropbtn">Books</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('manage_books') }}">Manage Books</a>
+                    <a href="{{ url_for('add_book') }}">Add Book</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Issue Book</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('issue_book') }}">Issue Book</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">My Profile</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('my_profile') }}">Edit Profile</a>
+                    <a href="{{ url_for('change_password') }}">Change Password</a>
+                    <a href="{{ url_for('view_profile') }}">View Profile</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h2>Admin Dashboard</h2>
+        <section class="overview">
+            <h3>Dashboard Overview</h3>
+            <p>Welcome to the Admin Dashboard. From here, you can manage books, issue new books, and access your profile settings.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Library Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

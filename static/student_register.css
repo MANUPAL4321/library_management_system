@@ -1,139 +1,162 @@
-/* student_register.css */
-
+/* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
+    background: url('student_register1.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f4f4f9;
     color: #333;
 }
 
+/* Header Styles */
 header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-}
-
-.logo img {
-    height: 50px;
-}
-
-nav {
+    height: 6%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem 2rem;
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
 }
 
-.nav-box {
-    color: white;
+header .logo img {
+    height: 70px;
+    border-radius: 10%;
+}
+
+header nav {
+    display: flex;
+    gap: 1.5rem;
+    margin-right: 4rem;
+}
+
+header nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    background-color: #000;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.nav-box i {
-    font-size: 1.5rem;
+header nav .nav-link:hover {
+    background-color: #fff;
+    color: #000;
 }
 
-nav span {
-    margin-top: 0.5rem;
-}
-
+/* Main Section Styles */
 main {
-    padding: 5rem 1rem 2rem; /* Adjusted for fixed header */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 100px); /* Ensures it takes full height minus header/footer */
-}
-
-.background-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-image: url('student_register.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    padding: 2rem;
+    padding-top: calc(80px + 2rem); /* Adjust for header height */
+    padding-bottom: calc(40px + 2rem); /* Adjust for footer height */
+    box-sizing: border-box;
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    height: calc(100vh - 80px - 40px); /* Adjust for header and footer height */
 }
 
-.registration-box {
-    background-color: white;
-    padding: 2rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+.scrollable-container {
     max-width: 500px;
     width: 100%;
+    overflow-y: auto; /* Enable scrolling */
+    background-color: rgba(166, 96, 241, 0.8); /* Adjust background color and opacity */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     text-align: center;
+    margin-top: 30%;
 }
 
 .registration-box h1 {
+    font-size: 2.2rem;
     margin-bottom: 1.5rem;
-    color: #4CAF50;
+    color: #333;
+    font-weight: 700;
 }
 
-.form-group {
+.registration-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.registration-box .form-group {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 1rem;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    border-color: #4CAF50;
-    outline: none;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 1rem;
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+.registration-box label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1rem;
-    margin-top: 1rem;
+}
+
+.registration-box input[type="text"],
+.registration-box input[type="email"],
+.registration-box input[type="password"],
+.registration-box select,
+.registration-box button {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+}
+
+.registration-box input[type="text"]:focus,
+.registration-box input[type="email"]:focus,
+.registration-box input[type="password"]:focus,
+.registration-box select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.registration-box button {
+    background-color: #007bff;
+    color: #fff;
     cursor: pointer;
-    border-radius: 4px;
+    border: none;
+    font-size: 1rem;
+    padding: 0.75rem;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #45a049;
+.registration-box button:hover {
+    background-color: #0056b3;
 }
 
-.note {
+.registration-box select {
+    background-color: #f9f9f9;
+}
+
+p.note {
     margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #353434;
+    text-align: center;
 }
 
 .note a {
-    color: #4CAF50;
+    color: #007bff;
     text-decoration: none;
 }
 
@@ -141,12 +164,24 @@ button:hover {
     text-decoration: underline;
 }
 
+/* Footer Styles */
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    position: relative;
+    position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.registration-message a {
+    color: purple;
+}
+
+.registration-message a:hover {
+    color: red;
 }

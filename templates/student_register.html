@@ -13,49 +13,51 @@
             <img src="{{ url_for('static', filename='download.png') }}" alt="Library Logo">
         </div>
         <nav>
-            <a href="{{ url_for('home') }}" class="nav-box"><i class="fas fa-home"></i><span>Home</span></a>
-            <a href="{{ url_for('student_login') }}" class="nav-box"><i class="fas fa-user-graduate"></i><span>Student Login</span></a>
-            <a href="{{ url_for('admin_login') }}" class="nav-box"><i class="fas fa-user-tie"></i><span>Admin Login</span></a>
+            <a href="{{ url_for('home') }}" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="{{ url_for('student_login') }}" class="nav-link"><i class="fas fa-user-graduate"></i><span>Student Login</span></a>
+            <a href="{{ url_for('admin_login') }}" class="nav-link"><i class="fas fa-user-tie"></i><span>Admin Login</span></a>
         </nav>
     </header>
     <main>
         <div class="background-container">
-            <div class="registration-box">
-                <h1>Student Registration</h1>
-                <form action="{{ url_for('register') }}" method="POST">
-                    <div class="form-group">
-                        <label for="name"><i class="fas fa-user"></i> Full Name:</label>
-                        <input type="text" id="name" name="name" placeholder="Full Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="semester"><i class="fas fa-calendar"></i> Semester:</label>
-                        <select id="semester" name="semester" required>
-                            <option value="" disabled selected>Select your semester</option>
-                            <option value="semester1">First Semester</option>
-                            <option value="semester2">Second Semester</option>
-                            <option value="semester3">Third Semester</option>
-                            <!-- Add more options as needed -->
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="email"><i class="fas fa-envelope"></i> Email:</label>
-                        <input type="email" id="email" name="email" placeholder="Email (e.g., user@sitare.org)" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password"><i class="fas fa-lock"></i> Password:</label>
-                        <input type="password" id="password" name="password" placeholder="Password" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="college"><i class="fas fa-university"></i> College Name:</label>
-                        <input type="text" id="college" name="college" placeholder="College Name (e.g., Sitare University)" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone"><i class="fas fa-phone"></i> Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
-                    </div>
-                    <button type="submit">Register</button>
-                </form>
-                <p class="note">Already have an account? <a href="{{ url_for('student_login') }}">Login here</a>.</p>
+            <div class="scrollable-container">
+                <div class="registration-box">
+                    <h1>Student Registration</h1>
+                    <form action="{{ url_for('student_register') }}" method="POST">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Full Name:</label>
+                            <input type="text" id="name" name="name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="semester"><i class="fas fa-calendar"></i> Semester:</label>
+                            <select id="semester" name="semester" required>
+                                <option value="" disabled selected>Select your semester</option>
+                                <option value="semester1">First Semester</option>
+                                <option value="semester2">Second Semester</option>
+                                <option value="semester3">Third Semester</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Email (e.g., user@sitare.org)" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password"><i class="fas fa-lock"></i> Password:</label>
+                            <input type="password" id="password" name="password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="college"><i class="fas fa-university"></i> College Name:</label>
+                            <input type="text" id="college" name="college" placeholder="College Name (e.g., Sitare University)" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+                        </div>
+                        <button type="submit">Register</button>
+                    </form>
+                    <p class="note">Already have an account? <a href="{{ url_for('student_login') }}">Login here</a>.</p>
+                </div>
             </div>
         </div>
     </main>

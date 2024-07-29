@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='issue_book.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='download.png') }}" alt="Logo" class="logo">
+            <h1>Welcome, {{ current_user.email.split('@')[0].capitalize() }}</h1>
+        </div>
+        <div class="header-right">
+            <p>{{ current_user.email }}</p>
+            <div class="dropdown">
+                <button class="dropbtn">Books</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('manage_books') }}">Manage Books</a>
+                    <a href="{{ url_for('add_book') }}">Add Book</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">My Profile</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('my_profile') }}">Edit Profile</a>
+                    <a href="{{ url_for('change_password') }}">Change Password</a>
+                    <a href="{{ url_for('view_profile') }}">View Profile</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h2>Issue Book</h2>
+        <form method="POST" action="{{ url_for('issue_book') }}">
+            <label for="book_id">Book ID</label>
+            <input type="text" id="book_id" name="book_id" required>
+            
+            <label for="user_email">User Email</label>
+            <input type="email" id="user_email" name="user_email" required>
+            
+            <label for="issue_date">Issue Date</label>
+            <input type="date" id="issue_date" name="issue_date" required>
+            
+            <button type="submit">Issue Book</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Library Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
